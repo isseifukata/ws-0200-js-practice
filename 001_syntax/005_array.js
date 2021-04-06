@@ -4,6 +4,10 @@
  */
 
 function printArray(array) {
+  const arrLength = array.length;
+  for (let i = 0; i < arrLength; i++) {
+    console.log(array[i]);
+  }
 }
 
 /**
@@ -22,6 +26,17 @@ function printArray(array) {
  *
  */
 function getDays() {
+  const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  return days;
 }
 
 /**
@@ -35,6 +50,14 @@ function getDays() {
  */
 
 function findNum(array, num) {
+  const arrLength = array.length;
+  let numFlg = false;
+  for (let i = 0; i < arrLength; i++) {
+    if (array[i] == num) {
+      numFlg = true;
+    }
+  }
+  return numFlg;
 }
 
 /**
@@ -48,11 +71,21 @@ function findNum(array, num) {
  */
 
 function isDuplicate(array) {
+  const arrLength = array.length;
+  let duplicateFlg = false;
+  for (let i = 0; i < arrLength; i++) {
+    for (let j = 0; j < arrLength; j++) {
+      if (i != j && array[i] == array[j]) {
+        duplicateFlg = true;
+      }
+    }
+  }
+  return duplicateFlg;
 }
 
 module.exports = {
   printArray,
   getDays,
   findNum,
-  isDuplicate
-}
+  isDuplicate,
+};
