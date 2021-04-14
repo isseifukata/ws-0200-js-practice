@@ -60,9 +60,9 @@ function mutateObject(person) {
 function assignNumber(persons) {
   let obj = {};
   for (let i = 0; i < persons.length; i++) {
-    randomNumber = Math.floor(Math.random * 10);
+    let randomNumber = Math.ceil(Math.random() * 10);
     currentPerson = persons[i];
-    obj.currentPerson = randomNumber;
+    obj[currentPerson] = randomNumber;
   }
   return obj;
 }
