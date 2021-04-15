@@ -10,6 +10,8 @@
  *
  */
 function rotate(str, num) {
+  let removedValue = str.splice(0, num);
+  return str + removedValue;
 }
 
 /**
@@ -23,8 +25,7 @@ function rotate(str, num) {
  *    'banana' => 'bnn'
  *
  */
-function removeVowels(str) {
-}
+function removeVowels(str) {}
 
 /**
  *  文字列のカウント
@@ -37,8 +38,7 @@ function removeVowels(str) {
  *    'hogehoage',  'hoge' => 1
  *
  */
-function countStr(s1, s2) {
-}
+function countStr(s1, s2) {}
 
 /**
  *  引数に与えられたアルファベットの文字列が回文であること
@@ -52,8 +52,7 @@ function countStr(s1, s2) {
  *
  */
 
-function isPalindrome(str) {
-}
+function isPalindrome(str) {}
 
 /**
  *  素数
@@ -69,8 +68,7 @@ function isPalindrome(str) {
  *    11 => True
  *
  */
-function isPrime(num) {
-}
+function isPrime(num) {}
 
 /**
  *  配列の4と次の数字を抜いた合計
@@ -87,8 +85,7 @@ function isPrime(num) {
  *    [4] => 0
  *
  */
-function sumWithout4andNext(array) {
-}
+function sumWithout4andNext(array) {}
 
 module.exports = {
   rotate,
@@ -96,5 +93,5 @@ module.exports = {
   countStr,
   isPalindrome,
   isPrime,
-  sumWithout4andNext
-}
+  sumWithout4andNext,
+};

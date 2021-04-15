@@ -51,7 +51,7 @@ function reverse(str) {
 
 function findIndex(str, char) {
   const arr = str.split("");
-  return arr.findIndex(value => value === char);
+  return arr.findIndex((value) => value === char);
 }
 
 /**
@@ -82,7 +82,13 @@ function split(a, b) {
  *
  */
 
-function sum(array) {}
+function sum(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
 
 /**
  *  配列の平均
@@ -98,7 +104,19 @@ function sum(array) {}
  *
  */
 
-function average(array) {}
+function average(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  let averageValue;
+  if (sum === 0) {
+    averageValue = 0;
+  } else {
+    averageValue = Math.floor(sum / array.length);
+  }
+  return averageValue;
+}
 
 /**
  *  配列の結合
@@ -112,7 +130,9 @@ function average(array) {}
  *
  */
 
-function concat(a, b) {}
+function concat(a, b) {
+  return a.concat(b);
+}
 
 /**
  *  2.1.2 配列の個数
@@ -126,7 +146,9 @@ function concat(a, b) {}
  *
  */
 
-function size(array) {}
+function size(array) {
+  return array.length;
+}
 
 /**
  *  2.1.3 配列の最大値と最小値
@@ -141,7 +163,23 @@ function size(array) {}
  *
  */
 
-function minMax(array) {}
+function minMax(array) {
+  if (array.length <= 0) {
+    return;
+  }
+  let maxValue = array[0];
+  let minValue = array[0];
+  array.forEach((value) => {
+    if (maxValue <= value) {
+      maxValue = value;
+    }
+    if (minValue >= value) {
+      minValue = value;
+    }
+  });
+
+  console.log(`max: ${maxValue}, min: ${minValue}`);
+}
 
 /**
  *  連番
@@ -154,7 +192,13 @@ function minMax(array) {}
  *
  */
 
-function seq(num) {}
+function seq(num) {
+  let totalArray = [];
+  for (let i = 0; i < num; i++) {
+    totalArray.push(i);
+  }
+  return totalArray;
+}
 
 /**
  *  奇数の連番
@@ -168,7 +212,18 @@ function seq(num) {}
  *
  */
 
-function omitSeq(num) {}
+function omitSeq(num) {
+  let totalArray = [];
+  if (num === 0) {
+    return totalArray;
+  }
+  for (let i = 0; i <= num; i++) {
+    if (i % 2 !== 0) {
+      totalArray.push(i);
+    }
+  }
+  return totalArray;
+}
 
 /**
  *  指定された数値以下の配列
@@ -182,7 +237,18 @@ function omitSeq(num) {}
  *
  */
 
-function filter(array, num) {}
+function filter(array, num) {
+  let totalArray = [];
+  if (array.length <= 0) {
+    return totalArray;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] <= num) {
+      totalArray.push(array[i]);
+    }
+  }
+  return totalArray;
+}
 
 /**
  *  Fizz Buzz
@@ -207,7 +273,19 @@ function filter(array, num) {}
  *    ...
  */
 
-function fizzBuzz() {}
+function fizzBuzz() {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log(`${i} FizzBuzz`);
+    } else if (i % 3 === 0) {
+      console.log(`${i} Fizz`);
+    } else if (i % 5 === 0) {
+      console.log(`${i} Buzz`);
+    } else {
+      console.log(i);
+    }
+  }
+}
 
 module.exports = {
   length,
