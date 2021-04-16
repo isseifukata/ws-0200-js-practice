@@ -10,8 +10,16 @@
  *
  */
 function rotate(str, num) {
-  let removedValue = str.splice(0, num);
-  return str + removedValue;
+  let str1, str2;
+  if (num > 0) {
+    str1 = str.slice(0, str.length - num);
+    str2 = str.slice(str.length - num);
+    return str2 + str1;
+  } else {
+    str1 = str.slice(0, -num);
+    str2 = str.slice(-num);
+    return str2 + str1;
+  }
 }
 
 /**
@@ -25,7 +33,9 @@ function rotate(str, num) {
  *    'banana' => 'bnn'
  *
  */
-function removeVowels(str) {}
+function removeVowels(str) {
+  return str.replace(/a|i|u|e|o/g, "");
+}
 
 /**
  *  文字列のカウント
@@ -38,7 +48,10 @@ function removeVowels(str) {}
  *    'hogehoage',  'hoge' => 1
  *
  */
-function countStr(s1, s2) {}
+function countStr(s1, s2) {
+  let regexp = new RegExp(String.raw`${s2}`, "g");
+  return s1.match(regexp).length;
+}
 
 /**
  *  引数に与えられたアルファベットの文字列が回文であること
@@ -52,7 +65,14 @@ function countStr(s1, s2) {}
  *
  */
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+  const originalText = str;
+  const reverseText = str
+    .split("")
+    .reverse()
+    .join("");
+  return originalText === reverseText;
+}
 
 /**
  *  素数
@@ -68,7 +88,22 @@ function isPalindrome(str) {}
  *    11 => True
  *
  */
-function isPrime(num) {}
+function isPrime(num) {
+  if (num === 1) {
+    return false;
+  } else if (num === 2) {
+    return true;
+  }
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+      break;
+    }
+    if (i + 1 === num) {
+      return true;
+    }
+  }
+}
 
 /**
  *  配列の4と次の数字を抜いた合計
@@ -85,7 +120,22 @@ function isPrime(num) {}
  *    [4] => 0
  *
  */
-function sumWithout4andNext(array) {}
+function sumWithout4andNext(array) {
+  let sumWithout4andNext = 0;
+  let nextTo4Flag = false;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 4) {
+      nextTo4Flag = true;
+      continue;
+    }
+    if (nextTo4Flag === true) {
+      nextTo4Flag = false;
+      continue;
+    }
+    sumWithout4andNext += array[i];
+  }
+  return sumWithout4andNext;
+}
 
 module.exports = {
   rotate,
