@@ -26,7 +26,19 @@ function sumSequence(n, sum = 0) {
  *    input: 10 => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
  */
 
-function fibonacci(num, index = 0, array = []) {}
+function fibonacci(num, index = 0, array = []) {
+  if (index === 0) {
+    array.push(1, 1);
+    index = 1;
+  }
+  index++;
+  if (index !== num) {
+    array.push(array[index - 1] + array[index - 2]);
+    fibonacci(num, index, array);
+  }
+
+  return array;
+}
 
 /**
  *  2.4.2 ディレクトリに含まれるファイルサイズの合計
@@ -80,7 +92,8 @@ function fibonacci(num, index = 0, array = []) {}
  *    => 38
  */
 
-function fileSize(node, sum = 0) {}
+function fileSize(node, sum = 0) {
+}
 
 module.exports = {
   sumSequence,
