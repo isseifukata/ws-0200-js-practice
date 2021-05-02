@@ -9,6 +9,15 @@
  */
 
 function bubbleSort (array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = array.length - 1; j >= 0; j--) {
+      if (array[j] < array[j - 1]) {
+        let temp = array[j - 1];
+        array[j - 1] = array[j];
+        array[j] = temp;
+      }
+    }
+  }
   return array
 }
 
@@ -23,7 +32,20 @@ function bubbleSort (array) {
  */
 
 function insertSort (array) {
-  return array
+  for (let i = 1; i < array.length; i++) {
+    let j;
+    let temp = array[i];
+    for (j = i - 1; j >= 0; j--) {
+      if (temp < array[j]) {
+        array[j + 1] = array[j];
+      } else {
+        break;
+      }
+    }
+    array[j + 1] = temp;
+  }
+
+  return array;
 }
 
 /**

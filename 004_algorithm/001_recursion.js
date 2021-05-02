@@ -93,6 +93,7 @@ function fibonacci(num, index = 0, array = []) {
  */
 
 function fileSize(node, sum = 0) {
+  
 }
 
 module.exports = {
